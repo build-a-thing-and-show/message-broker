@@ -1,8 +1,8 @@
-package main
+package service
 
 import "context"
 
-// Service interface defines the methods of our service
+// HelloWorldService defines the service interface
 type HelloWorldService interface {
 	Greet(ctx context.Context, name string) (string, error)
 }
@@ -10,6 +10,12 @@ type HelloWorldService interface {
 // service implements HelloWorldService
 type service struct{}
 
+// NewHelloWorldService creates a new HelloWorldService instance
+func NewHelloWorldService() HelloWorldService {
+	return service{}
+}
+
+// Greet implements the Greet method
 func (s service) Greet(ctx context.Context, name string) (string, error) {
 	if name == "" {
 		name = "World"
