@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/build-a-thing-and-show/message-bus/endpoint"
@@ -27,4 +28,5 @@ func main() {
 	// Start the HTTP server
 	http.Handle("/greet", handler)
 	http.ListenAndServe(":8080", nil)
+	fmt.Println("Server started at http://localhost:8080")
 }
