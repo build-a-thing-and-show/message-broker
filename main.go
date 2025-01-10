@@ -27,6 +27,6 @@ func main() {
 
 	// Start the HTTP server
 	http.Handle("/greet", handler)
-	log.Println("Starting HTTP server on :8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Println("Starting HTTP server on :10000")
+	log.Fatal(http.ListenAndServe(":10000", nil))
 }
