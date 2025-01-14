@@ -1,3 +1,4 @@
+// This is a basic hello world example. It is not applied in production anymore.
 package endpoint
 
 import (
