@@ -12,7 +12,7 @@ RUN go mod download
 COPY . .
 
 # Build the Go application
-RUN go build -o message-boss .
+RUN go build -o message-broker cmd/broker/main.go .
 
 # Stage 2: Run
 FROM alpine:3.21
