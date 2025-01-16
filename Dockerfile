@@ -22,10 +22,10 @@ RUN apk --no-cache add ca-certificates
 
 # Set working directory and copy the compiled binary
 WORKDIR /root/
-COPY --from=builder /app/message-boss .
+COPY --from=builder /app/message-broker .
 
 # Expose the application port
 EXPOSE 8080
 
 # Command to run the application
-CMD ["./message-boss"]
+CMD ["./message-broker"]
