@@ -12,7 +12,7 @@ import (
 func ProcessReceivedMessage(msg model.Message) error {
 	// Here, you could implement custom logic, like storing the message, validating it, etc.
 	log.Printf("Received message: %v", msg)
-
+	SendMessageToService(msg)
 	// For now, just returning nil assuming no processing error
 	return nil
 }
@@ -21,9 +21,14 @@ func ProcessReceivedMessage(msg model.Message) error {
 func SendMessageToService(msg model.Message) error {
 	// Assuming target service URL is defined here, you may parameterize it
 	targetServiceURL := "http://localhost:20000/api/receive"
+	coreUiURL := "http://localhost:5000/receive"
 
 	// Use the HTTP client to send the message to the target service
 	if err := client.SendHTTPPostRequest(targetServiceURL, msg); err != nil {
+		return err
+	}
+
+	if err := client.SendHTTPPostRequest(coreUiURL, msg); err != nil {
 		return err
 	}
 
